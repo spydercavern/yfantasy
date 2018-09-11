@@ -11,8 +11,8 @@ export default class PlayerSelection extends Component {
     this.state = {
       players: [],
       selectedPlayers: [],
-      maxPlayers: 11,
-      maxAvailablePoints: 100
+      maxPlayers: 2,
+      maxAvailablePoints: 20
     };
   }
 
@@ -91,21 +91,33 @@ export default class PlayerSelection extends Component {
     });
   }
   canSubmitSelection() {
-    return this.state.selectedPlayers.length === 11;
+    return this.state.selectedPlayers.length === this.state.maxPlayers;
   }
 
-  render() {
+  submitSelection() {
+    let matchKey = `${this.props.match.params.matchID}_${Math.random()}`;
+    // store the json in the localstoraage;
+    localStorage.setItem(matchKey, JSON.stringify(this.state.selectedPlayers));
+    this.props.history.push(`/team/${matchKey}`);
+  }
+
+  getMatchName() {
     let matchId = this.props.match.params.matchID;
     let currentMatch = matchList.filter(
       match => match.MATCH_ID.toString() === matchId
     );
 
     let matchName = currentMatch.length > 0 ? currentMatch[0].MATCH_NAME : '';
+    return matchName;
+  }
+
+  render() {
     let { maxAvailablePoints, selectedPlayers } = this.state;
     const remainingPoints = selectedPlayers.reduce(
       (sum, currentPlayer) => sum + currentPlayer.PLAYER_CREDITS,
       0
     );
+    let matchName = this.getMatchName();
     return (
       <div>
         <h1> Team Hacker Oath </h1>
@@ -120,6 +132,7 @@ export default class PlayerSelection extends Component {
           variant="contained"
           color="primary"
           disabled={!this.canSubmitSelection()}
+          onClick={this.submitSelection.bind(this)}
         >
           Submit Selection
         </Button>
