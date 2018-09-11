@@ -28,7 +28,7 @@ export default class Team extends Component {
         simulating: false,
         matchResults: matchSimulatedResults
       });
-    }, 100);
+    }, 3000);
   }
 
   getPlayerScore(playerName) {
