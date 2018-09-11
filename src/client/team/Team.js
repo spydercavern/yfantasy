@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import _ from 'lodash';
+import './team.css';
 
 import { teamName, matchSimulatedResults, teamResults } from '../common/common';
 
@@ -74,7 +75,7 @@ export default class Team extends Component {
         <div>
           {sortedTeam.map(team => (
             <div key={team.TEAM_NAME}>
-              <div>
+              <div className={team.highlight ? 'highlight-my-team' : ''}>
                 {team.TEAM_NAME} - {team.POINTS_EARNED}
               </div>
             </div>
