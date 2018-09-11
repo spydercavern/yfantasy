@@ -30,7 +30,7 @@ const matchList = [
 class Main extends Component {
   handleClick = MATCH_ID => {
     console.log(`redirecting to ${MATCH_ID}`);
-    this.props.history.push(`/team/${MATCH_ID}`);
+    this.props.history.push(`/player/${MATCH_ID}`);
   };
 
   renderMatchlist = () =>
