@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
@@ -10,15 +10,56 @@ const styles = theme => ({
   }
 });
 
-function Main() {
-  return (
-    <div>
-      <Typography variant="headline" component="h3">
-        Welcome to Yahoo! Fantasy Cricket
-      </Typography>
-      <Typography component="p">Choose your match</Typography>
-    </div>
-  );
+const matchList = [
+  {
+    MATCH_ID: 1,
+    MATCH_NAME: ' AAA - BBB'
+  },
+  {
+    MATCH_ID: 2,
+    MATCH_NAME: ' CCC - DDD'
+  },
+  {
+    MATCH_ID: 3,
+    MATCH_NAME: ' EEE - FFF'
+  }
+];
+
+/*eslint-disable*/
+
+class Main extends Component {
+  handleClick = MATCH_ID => {
+    console.log(`redirecting to ${MATCH_ID}`);
+    this.props.history.push(`/team/${MATCH_ID}`);
+  };
+
+  renderMatchlist = () =>
+    matchList.map(match => (
+      <li
+        class="mdc-list-item"
+        key={match.MATCH_ID}
+        onClick={() => this.handleClick(match.MATCH_ID)}
+      >
+        <span class="mdc-list-item__text">
+          <span class="mdc-list-item__primary-text">{match.MATCH_ID}</span>
+          <span class="mdc-list-item__secondary-text">{match.MATCH_NAME}</span>
+        </span>
+      </li>
+    ));
+  render() {
+    return (
+      <div>
+        <Typography variant="headline" component="h3">
+          Welcome to Yahoo! Fantasy Cricket
+        </Typography>
+        <Typography component="p">Choose your match</Typography>
+
+        <ul class="mdc-list mdc-list--two-line" aria-orientation="vertical">
+          {this.renderMatchlist()}
+        </ul>
+      </div>
+    );
+  }
 }
 
 export default withStyles(styles)(Main);

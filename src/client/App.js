@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 import Main from './dashboard/Main';
 
@@ -13,8 +13,8 @@ const App = () => (
   <Router>
     <Paper elevation={1}>
       <Route exact path="/" component={Main} />
-      <Route exact path="/player" component={PlayerSelection} />
-      <Route exact path="/team" component={PreviewTeam} />
+      <Route path="/player" component={PlayerSelection} />
+      <Route path="/team" component={PreviewTeam} />
     </Paper>
   </Router>
 );
