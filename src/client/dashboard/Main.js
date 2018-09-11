@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import { matchList } from '../common/common';
 
 const styles = theme => ({
   root: {
@@ -9,21 +10,6 @@ const styles = theme => ({
     paddingBottom: theme.spacing.unit * 2
   }
 });
-
-const matchList = [
-  {
-    MATCH_ID: 1,
-    MATCH_NAME: 'CSK vs RCB'
-  },
-  {
-    MATCH_ID: 2,
-    MATCH_NAME: 'KKR vs MI'
-  },
-  {
-    MATCH_ID: 3,
-    MATCH_NAME: 'SRH vs DD'
-  }
-];
 
 /*eslint-disable*/
 
@@ -41,9 +27,8 @@ class Main extends Component {
         onClick={() => this.handleClick(match.MATCH_ID)}
       >
         <span className="mdc-list-item__text">
-          <span className="mdc-list-item__primary-text">{match.MATCH_ID}</span>
-          <span className="mdc-list-item__secondary-text">
-            {match.MATCH_NAME}
+          <span className="mdc-list-item__primary-text">
+            {match.MATCH_ID} - {match.MATCH_NAME}
           </span>
         </span>
       </li>
@@ -56,6 +41,7 @@ class Main extends Component {
         </Typography>
         <Typography component="p">Choose your match</Typography>
 
+        <h3>Available Matches</h3>
         <ul className="mdc-list mdc-list--two-line" aria-orientation="vertical">
           {this.renderMatchlist()}
         </ul>

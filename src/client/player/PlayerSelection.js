@@ -2,189 +2,8 @@ import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 
 import './playerSelection.css';
+import { matchList, playerList } from '../common/common';
 
-const playerList = [
-  {
-    PLAYER_NAME: 'LUKE RONCHI',
-    PLAYER_TYPE: 'WK',
-    PLAYER_CREDITS: 9.5
-  },
-  {
-    PLAYER_NAME: 'DENESH RAMDIN',
-    PLAYER_TYPE: 'WK',
-    PLAYER_CREDITS: 8.5
-  },
-  {
-    PLAYER_NAME: 'SHIMRON HETMYER',
-    PLAYER_TYPE: 'BAT',
-    PLAYER_CREDITS: 10.5
-  },
-  {
-    PLAYER_NAME: 'COLIN MUNRO',
-    PLAYER_TYPE: 'BAT',
-    PLAYER_CREDITS: 10.5
-  },
-  {
-    PLAYER_NAME: 'DARREN-BRAVO',
-    PLAYER_TYPE: 'BAT',
-    PLAYER_CREDITS: 9.5
-  },
-  {
-    PLAYER_NAME: 'BRENDON MCCULLUM',
-    PLAYER_TYPE: 'BAT',
-    PLAYER_CREDITS: 9.5
-  },
-  {
-    PLAYER_NAME: 'CHADWICK WALTON',
-    PLAYER_TYPE: 'BAT',
-    PLAYER_CREDITS: 9
-  },
-  {
-    PLAYER_NAME: 'SHERFANE RUTHERFORD',
-    PLAYER_TYPE: 'BAT',
-    PLAYER_CREDITS: 8.5
-  },
-  {
-    PLAYER_NAME: 'CAMERON DELPORT',
-    PLAYER_TYPE: 'BAT',
-    PLAYER_CREDITS: 8.5
-  },
-  {
-    PLAYER_NAME: 'JASON MOHAMMED',
-    PLAYER_TYPE: 'BAT',
-    PLAYER_CREDITS: 8.5
-  },
-  {
-    PLAYER_NAME: 'COLIN INGRAM',
-    PLAYER_TYPE: 'BAT',
-    PLAYER_CREDITS: 8.5
-  },
-  {
-    PLAYER_NAME: 'GAJANAND SINGH',
-    PLAYER_TYPE: 'BAT',
-    PLAYER_CREDITS: 8
-  },
-  {
-    PLAYER_NAME: 'HAMZA TARIQ',
-    PLAYER_TYPE: 'BAT',
-    PLAYER_CREDITS: 8
-  },
-  {
-    PLAYER_NAME: 'AMIR JANGO',
-    PLAYER_TYPE: 'BAT',
-    PLAYER_CREDITS: 8
-  },
-  {
-    PLAYER_NAME: 'DWAYNE BRAVO',
-    PLAYER_TYPE: 'AR',
-    PLAYER_CREDITS: 9.5
-  },
-  {
-    PLAYER_NAME: 'SOHAIL TANVIR',
-    PLAYER_TYPE: 'AR',
-    PLAYER_CREDITS: 9
-  },
-  {
-    PLAYER_NAME: 'SUNIL NARINE',
-    PLAYER_TYPE: 'AR',
-    PLAYER_CREDITS: 9
-  },
-  {
-    PLAYER_NAME: 'CHRIS GREEN',
-    PLAYER_TYPE: 'AR',
-    PLAYER_CREDITS: 8.5
-  },
-  {
-    PLAYER_NAME: 'JAVON SEARLES',
-    PLAYER_TYPE: 'AR',
-    PLAYER_CREDITS: 8.5
-  },
-  {
-    PLAYER_NAME: 'ROSHON PRIMUS',
-    PLAYER_TYPE: 'AR',
-    PLAYER_CREDITS: 8
-  },
-  {
-    PLAYER_NAME: 'IMRAN TAHIR',
-    PLAYER_TYPE: 'BOW',
-    PLAYER_CREDITS: 9.5
-  },
-  {
-    PLAYER_NAME: 'FAWAD AHMED',
-    PLAYER_TYPE: 'BOW',
-    PLAYER_CREDITS: 9
-  },
-  {
-    PLAYER_NAME: 'RAYAD EMRIT',
-    PLAYER_TYPE: 'BOW',
-    PLAYER_CREDITS: 8.5
-  },
-  {
-    PLAYER_NAME: 'SHANNON GABRIEL',
-    PLAYER_TYPE: 'BOW',
-    PLAYER_CREDITS: 8.5
-  },
-  {
-    PLAYER_NAME: 'ALI KHAN',
-    PLAYER_TYPE: 'BOW',
-    PLAYER_CREDITS: 8.5
-  },
-  {
-    PLAYER_NAME: 'KEEMO PAUL',
-    PLAYER_TYPE: 'BOW',
-    PLAYER_CREDITS: 8.5
-  },
-  {
-    PLAYER_NAME: 'ANDERSON PHILLIP',
-    PLAYER_TYPE: 'BOW',
-    PLAYER_CREDITS: 8
-  },
-  {
-    PLAYER_NAME: 'KHARY PIERRE',
-    PLAYER_TYPE: 'BOW',
-    PLAYER_CREDITS: 8
-  },
-  {
-    PLAYER_NAME: 'AKSHAYA PERSUAD',
-    PLAYER_TYPE: 'BOW',
-    PLAYER_CREDITS: 8
-  },
-  {
-    PLAYER_NAME: 'NIKITA MILLER',
-    PLAYER_TYPE: 'BOW',
-    PLAYER_CREDITS: 8
-  },
-  {
-    PLAYER_NAME: 'KEVON COOPER',
-    PLAYER_TYPE: 'BOW',
-    PLAYER_CREDITS: 8
-  },
-  {
-    PLAYER_NAME: 'DEVENDRA BISHOO',
-    PLAYER_TYPE: 'BOW',
-    PLAYER_CREDITS: 8
-  },
-  {
-    PLAYER_NAME: 'VEERASAMMY PERMAUL',
-    PLAYER_TYPE: 'BOW',
-    PLAYER_CREDITS: 8
-  },
-  {
-    PLAYER_NAME: 'ROMARIO SHEPHERD',
-    PLAYER_TYPE: 'BOW',
-    PLAYER_CREDITS: 8
-  },
-  {
-    PLAYER_NAME: 'SAURABH NETRAVALKAR',
-    PLAYER_TYPE: 'BOW',
-    PLAYER_CREDITS: 8
-  },
-  {
-    PLAYER_NAME: 'TERRANCE HINDS',
-    PLAYER_TYPE: 'BOW',
-    PLAYER_CREDITS: 7.5
-  }
-];
 /*eslint-disable*/
 export default class PlayerSelection extends Component {
   constructor() {
@@ -277,6 +96,11 @@ export default class PlayerSelection extends Component {
 
   render() {
     let matchId = this.props.match.params.matchID;
+    let currentMatch = matchList.filter(
+      match => match.MATCH_ID.toString() === matchId
+    );
+
+    let matchName = currentMatch.length > 0 ? currentMatch[0].MATCH_NAME : '';
     let { maxAvailablePoints, selectedPlayers } = this.state;
     const remainingPoints = selectedPlayers.reduce(
       (sum, currentPlayer) => sum + currentPlayer.PLAYER_CREDITS,
@@ -284,7 +108,8 @@ export default class PlayerSelection extends Component {
     );
     return (
       <div>
-        <h1>select the player for the match {matchId}</h1>
+        <h1> Team Hacker Oath </h1>
+        <h2>Choose your players for the match {matchName}</h2>
         <div>
           <div>
             Total Remaining points {maxAvailablePoints - remainingPoints}
