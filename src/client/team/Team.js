@@ -92,10 +92,10 @@ export default class Team extends Component {
     return (
       <div>
         <h1> {teamName}</h1>
-        <h2>Selected Players</h2>
+        {/* <h2>Selected Players</h2>
         {selectedPlayers.map(player => (
           <div key={player.PLAYER_NAME}> {player.PLAYER_NAME} </div>
-        ))}
+        ))} */}
         <Button
           variant="contained"
           color="primary"
