@@ -36,13 +36,15 @@ class Main extends Component {
   renderMatchlist = () =>
     matchList.map(match => (
       <li
-        class="mdc-list-item"
+        className="mdc-list-item"
         key={match.MATCH_ID}
         onClick={() => this.handleClick(match.MATCH_ID)}
       >
-        <span class="mdc-list-item__text">
-          <span class="mdc-list-item__primary-text">{match.MATCH_ID}</span>
-          <span class="mdc-list-item__secondary-text">{match.MATCH_NAME}</span>
+        <span className="mdc-list-item__text">
+          <span className="mdc-list-item__primary-text">{match.MATCH_ID}</span>
+          <span className="mdc-list-item__secondary-text">
+            {match.MATCH_NAME}
+          </span>
         </span>
       </li>
     ));
@@ -54,7 +56,7 @@ class Main extends Component {
         </Typography>
         <Typography component="p">Choose your match</Typography>
 
-        <ul class="mdc-list mdc-list--two-line" aria-orientation="vertical">
+        <ul className="mdc-list mdc-list--two-line" aria-orientation="vertical">
           {this.renderMatchlist()}
         </ul>
       </div>
