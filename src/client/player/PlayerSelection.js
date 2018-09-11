@@ -11,8 +11,8 @@ export default class PlayerSelection extends Component {
     this.state = {
       players: [],
       selectedPlayers: [],
-      maxPlayers: 2,
-      maxAvailablePoints: 20
+      maxPlayers: 11,
+      maxAvailablePoints: 100
     };
   }
 

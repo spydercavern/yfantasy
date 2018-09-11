@@ -1,3 +1,5 @@
+export const teamName = 'Team Hacker Oath';
+
 export const matchList = [
   {
     MATCH_ID: 1,
@@ -193,5 +195,211 @@ export const playerList = [
     PLAYER_NAME: 'TERRANCE HINDS',
     PLAYER_TYPE: 'BOW',
     PLAYER_CREDITS: 7.5
+  }
+];
+
+export const matchSimulatedResults = [
+  {
+    PLAYER_NAME: 'LUKE RONCHI',
+    POINTS_SCORED: 5
+  },
+  {
+    PLAYER_NAME: 'DENESH RAMDIN',
+    POINTS_SCORED: 38
+  },
+  {
+    PLAYER_NAME: 'SHIMRON HETMYER',
+    POINTS_SCORED: 73
+  },
+  {
+    PLAYER_NAME: 'COLIN MUNRO',
+    POINTS_SCORED: 7
+  },
+  {
+    PLAYER_NAME: 'DARREN-BRAVO',
+    POINTS_SCORED: 47
+  },
+  {
+    PLAYER_NAME: 'BRENDON MCCULLUM',
+    POINTS_SCORED: 10
+  },
+  {
+    PLAYER_NAME: 'CHADWICK WALTON',
+    POINTS_SCORED: 8
+  },
+  {
+    PLAYER_NAME: 'SHERFANE RUTHERFORD',
+    POINTS_SCORED: 58
+  },
+  {
+    PLAYER_NAME: 'CAMERON DELPORT',
+    POINTS_SCORED: 45
+  },
+  {
+    PLAYER_NAME: 'JASON MOHAMMED',
+    POINTS_SCORED: 6
+  },
+  {
+    PLAYER_NAME: 'COLIN INGRAM',
+    POINTS_SCORED: 4
+  },
+  {
+    PLAYER_NAME: 'GAJANAND SINGH',
+    POINTS_SCORED: 0
+  },
+  {
+    PLAYER_NAME: 'HAMZA TARIQ',
+    POINTS_SCORED: 0
+  },
+  {
+    PLAYER_NAME: 'AMIR JANGO',
+    POINTS_SCORED: 0
+  },
+  {
+    PLAYER_NAME: 'DWAYNE BRAVO',
+    POINTS_SCORED: 17
+  },
+  {
+    PLAYER_NAME: 'SOHAIL TANVIR',
+    POINTS_SCORED: 6
+  },
+  {
+    PLAYER_NAME: 'SUNIL NARINE',
+    POINTS_SCORED: 0
+  },
+  {
+    PLAYER_NAME: 'CHRIS GREEN',
+    POINTS_SCORED: 3
+  },
+  {
+    PLAYER_NAME: 'JAVON SEARLES',
+    POINTS_SCORED: 0
+  },
+  {
+    PLAYER_NAME: 'ROSHON PRIMUS',
+    POINTS_SCORED: 0
+  },
+  {
+    PLAYER_NAME: 'IMRAN TAHIR',
+    POINTS_SCORED: 0
+  },
+  {
+    PLAYER_NAME: 'FAWAD AHMED',
+    POINTS_SCORED: 6
+  },
+  {
+    PLAYER_NAME: 'RAYAD EMRIT',
+    POINTS_SCORED: 6
+  },
+  {
+    PLAYER_NAME: 'SHANNON GABRIEL',
+    POINTS_SCORED: 0
+  },
+  {
+    PLAYER_NAME: 'ALI KHAN',
+    POINTS_SCORED: 0
+  },
+  {
+    PLAYER_NAME: 'KEEMO PAUL',
+    POINTS_SCORED: 0
+  },
+  {
+    PLAYER_NAME: 'ANDERSON PHILLIP',
+    POINTS_SCORED: 0
+  },
+  {
+    PLAYER_NAME: 'KHARY PIERRE',
+    POINTS_SCORED: 6
+  },
+  {
+    PLAYER_NAME: 'AKSHAYA PERSUAD',
+    POINTS_SCORED: 0
+  },
+  {
+    PLAYER_NAME: 'NIKITA MILLER',
+    POINTS_SCORED: 3
+  },
+  {
+    PLAYER_NAME: 'KEVON COOPER',
+    POINTS_SCORED: 43
+  },
+  {
+    PLAYER_NAME: 'DEVENDRA BISHOO',
+    POINTS_SCORED: 1
+  },
+  {
+    PLAYER_NAME: 'VEERASAMMY PERMAUL',
+    POINTS_SCORED: 0
+  },
+  {
+    PLAYER_NAME: 'ROMARIO SHEPHERD',
+    POINTS_SCORED: 0
+  },
+  {
+    PLAYER_NAME: 'SAURABH NETRAVALKAR',
+    POINTS_SCORED: 0
+  },
+  {
+    PLAYER_NAME: 'TERRANCE HINDS',
+    POINTS_SCORED: 0
+  }
+];
+
+export const teamResults = [
+  {
+    TEAM_NAME: 'PINKMAN',
+    POINTS_EARNED: 156
+  },
+  {
+    TEAM_NAME: 'BBAD',
+    POINTS_EARNED: 134
+  },
+  {
+    TEAM_NAME: 'GOT',
+    POINTS_EARNED: 56
+  },
+  {
+    TEAM_NAME: 'PEAKY',
+    POINTS_EARNED: 39
+  },
+  {
+    TEAM_NAME: 'BLINDERS',
+    POINTS_EARNED: 82
+  },
+  {
+    TEAM_NAME: 'WOLVES',
+    POINTS_EARNED: 23
+  },
+  {
+    TEAM_NAME: 'VAMPIRE',
+    POINTS_EARNED: 169
+  },
+  {
+    TEAM_NAME: 'IRONBAT',
+    POINTS_EARNED: 188
+  },
+  {
+    TEAM_NAME: 'SCOOBY',
+    POINTS_EARNED: 142
+  },
+  {
+    TEAM_NAME: 'POPEYE',
+    POINTS_EARNED: 203
+  },
+  {
+    TEAM_NAME: 'DEXTER',
+    POINTS_EARNED: 34
+  },
+  {
+    TEAM_NAME: 'PABLO',
+    POINTS_EARNED: 288
+  },
+  {
+    TEAM_NAME: 'HOBBIT',
+    POINTS_EARNED: 96
+  },
+  {
+    TEAM_NAME: 'SWATCAT',
+    POINTS_EARNED: 67
   }
 ];
