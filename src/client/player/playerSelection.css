@@ -1,0 +1,9 @@
+.players-selection-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.current-players-container,
+.selected-players-container {
+  flex: 1;
+}

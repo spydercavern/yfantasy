@@ -13,15 +13,15 @@ const styles = theme => ({
 const matchList = [
   {
     MATCH_ID: 1,
-    MATCH_NAME: ' AAA - BBB'
+    MATCH_NAME: 'CSK vs RCB'
   },
   {
     MATCH_ID: 2,
-    MATCH_NAME: ' CCC - DDD'
+    MATCH_NAME: 'KKR vs MI'
   },
   {
     MATCH_ID: 3,
-    MATCH_NAME: ' EEE - FFF'
+    MATCH_NAME: 'SRH vs DD'
   }
 ];
 
