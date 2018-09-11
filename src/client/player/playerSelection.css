@@ -7,3 +7,13 @@
 .selected-players-container {
   flex: 1;
 }
+
+.player .selected {
+  background-color: lightblue;
+  margin: 10px;
+}
+
+.max-height-500 {
+  max-height: 500px;
+  overflow: auto;
+}

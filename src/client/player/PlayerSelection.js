@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Button from '@material-ui/core/Button';
+
 import './playerSelection.css';
 
 const playerList = [
@@ -190,8 +192,8 @@ export default class PlayerSelection extends Component {
     this.state = {
       players: [],
       selectedPlayers: [],
-      maxPlayers: 12,
-      maxAvailablePoints: 50
+      maxPlayers: 11,
+      maxAvailablePoints: 100
     };
   }
 
@@ -211,6 +213,7 @@ export default class PlayerSelection extends Component {
     let { selectedPlayers, maxPlayers, maxAvailablePoints } = this.state;
     // max number of players already added
     if (selectedPlayers.length > maxPlayers) {
+      alert(`max players selected ${maxPlayers}`);
       return false;
     }
     // check if the max points reached
@@ -219,6 +222,7 @@ export default class PlayerSelection extends Component {
       0
     );
     if (totalPoints + newPlayer.PLAYER_CREDITS > maxAvailablePoints) {
+      alert(`max points attained ${maxAvailablePoints}`);
       return false;
     }
     return true;
@@ -246,33 +250,60 @@ export default class PlayerSelection extends Component {
   }
 
   renderPlayerList(players) {
-    return players.map(player => (
-      <li
-        className="mdc-list-item"
-        key={player.PLAYER_NAME}
-        onClick={() => this.addRemovePlayer(player)}
-      >
-        <span className="mdc-list-item__text">
-          <span className="mdc-list-item__primary-text">
-            {player.PLAYER_NAME} - {player.PLAYER_TYPE} -{' '}
-            {player.PLAYER_CREDITS}{' '}
-            {player.selected ? 'is selected' : 'not selected'}
+    return players.map(player => {
+      let css = `mdc-list-item ${
+        player.selected ? 'selected' : 'not-selected'
+      }`;
+
+      return (
+        <li
+          className={css}
+          key={player.PLAYER_NAME}
+          onClick={() => this.addRemovePlayer(player)}
+        >
+          <span className="mdc-list-item__text">
+            <span className="mdc-list-item__primary-text">
+              {player.PLAYER_NAME} - {player.PLAYER_TYPE} -{' '}
+              {player.PLAYER_CREDITS}
+            </span>
           </span>
-        </span>
-      </li>
-    ));
+        </li>
+      );
+    });
   }
+  canSubmitSelection() {
+    return this.state.selectedPlayers.length === 11;
+  }
+
   render() {
     let matchId = this.props.match.params.matchID;
+    let { maxAvailablePoints, selectedPlayers } = this.state;
+    const remainingPoints = selectedPlayers.reduce(
+      (sum, currentPlayer) => sum + currentPlayer.PLAYER_CREDITS,
+      0
+    );
     return (
       <div>
-        select the player for the match {matchId}
+        <h1>select the player for the match {matchId}</h1>
+        <div>
+          <div>
+            Total Remaining points {maxAvailablePoints - remainingPoints}
+          </div>
+          <div>Total selected players {selectedPlayers.length}</div>
+        </div>
+        <Button
+          variant="contained"
+          color="primary"
+          disabled={!this.canSubmitSelection()}
+        >
+          Submit Selection
+        </Button>
         <div className="players-selection-container">
           <br />
           <div className="current-players-container">
             Avilable Players
             <ul
-              className="mdc-list mdc-list--two-line"
+              className="mdc-list mdc-list--two-line player max-height-500"
               aria-orientation="vertical"
             >
               {this.renderPlayerList(this.state.players)}
@@ -281,7 +312,7 @@ export default class PlayerSelection extends Component {
           <div className="selected-players-container">
             Selected Players
             <ul
-              className="mdc-list mdc-list--two-line"
+              className="mdc-list mdc-list--two-line player max-height-500"
               aria-orientation="vertical"
             >
               {this.renderPlayerList(this.state.selectedPlayers)}
