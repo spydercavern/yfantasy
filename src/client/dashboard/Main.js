@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import { matchList } from '../common/common';
 
 const styles = theme => ({
@@ -36,11 +35,6 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Typography variant="headline" component="h3">
-          Welcome to Yahoo! Fantasy Cricket
-        </Typography>
-        <Typography component="p">Choose your match</Typography>
-
         <h3>Available Matches</h3>
         <ul className="mdc-list mdc-list--two-line" aria-orientation="vertical">
           {this.renderMatchlist()}

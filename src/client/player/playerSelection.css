@@ -17,3 +17,11 @@
   max-height: 500px;
   overflow: auto;
 }
+
+.current-players-container > ul > li {
+  max-height: 50px;
+}
+
+.selected-players-container > ul > li {
+  max-height: 50px;
+}

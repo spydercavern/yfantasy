@@ -5,4 +5,33 @@ h1 {
 body {
   text-align: center;
   margin: auto;
+  padding: 10px;
+  background-color: aliceblue;
+  max-width: 800px;
+}
+
+.main-header {
+  background-color: #400590;
+  display: flex;
+  align-items: center;
+  height: 55px;
+}
+.site-logo {
+  background-image: url(https://cricket.yahoo.net/static-assets/images/cssimages/yahoo-logo.png);
+  text-indent: -9999px;
+  background-repeat: no-repeat;
+  margin: 8px 10px 7px;
+  width: 168px;
+  height: 20px;
+}
+
+.main-header a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.player-header {
+  background-color: #f3f3f3;
+  padding: 10px;
+  margin: 2px;
 }

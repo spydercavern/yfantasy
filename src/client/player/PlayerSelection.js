@@ -139,7 +139,7 @@ export default class PlayerSelection extends Component {
         <div className="players-selection-container">
           <br />
           <div className="current-players-container">
-            Avilable Players
+            <div className="player-header">Avilable Players</div>
             <ul
               className="mdc-list mdc-list--two-line player max-height-500"
               aria-orientation="vertical"
@@ -148,7 +148,8 @@ export default class PlayerSelection extends Component {
             </ul>
           </div>
           <div className="selected-players-container">
-            Selected Players
+            <div className="player-header">Selected Players</div>
+
             <ul
               className="mdc-list mdc-list--two-line player max-height-500"
               aria-orientation="vertical"

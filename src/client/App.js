@@ -1,6 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Route } from 'react-router-dom';
-import Paper from '@material-ui/core/Paper';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import Main from './dashboard/Main';
 import PlayerSelection from './player/PlayerSelection';
 import Team from './team/Team';
@@ -11,11 +10,21 @@ import './app.css';
 
 const App = () => (
   <Router>
-    <Paper elevation={1}>
-      <Route exact path="/" component={Main} />
-      <Route path="/player/:matchID" component={PlayerSelection} />
-      <Route path="/team/:teamID" component={Team} />
-    </Paper>
+    <div>
+      <img
+        class="banner"
+        src="https://s.yimg.com/dh/ap/dfpromo/df_banner_wide_v2.png"
+      />
+      <div className="main-header">
+        <span className="site-logo" />
+        <Link to="/">Home</Link>
+      </div>
+      <div style={{ backgroundColor: 'white' }}>
+        <Route exact path="/" component={Main} />
+        <Route path="/player/:matchID" component={PlayerSelection} />
+        <Route path="/team/:teamID" component={Team} />
+      </div>
+    </div>
   </Router>
 );
 
