@@ -12,7 +12,7 @@ const App = () => (
   <Router>
     <div>
       <img
-        class="banner"
+        className="banner"
         src="https://s.yimg.com/dh/ap/dfpromo/df_banner_wide_v2.png"
       />
       <div className="main-header">

@@ -8,8 +8,13 @@ body {
   padding: 10px;
   background-color: aliceblue;
   max-width: 800px;
+  background-image: url(http://www.ruggaworld.com/wp-content/uploads/2017/07/SF-Sport-background.jpg);
+  background-repeat: repeat-y;
+  background-size: 100% auto;
 }
-
+.banner {
+  background-color: white;
+}
 .main-header {
   background-color: #400590;
   display: flex;

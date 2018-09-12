@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import Tooltip from '@material-ui/core/Tooltip';
 
 import './playerSelection.css';
 import { matchList, playerList } from '../common/common';
 
 /*eslint-disable*/
-export default class PlayerSelection extends Component {
+class PlayerSelection extends Component {
   constructor() {
     super();
     this.state = {
@@ -69,24 +71,30 @@ export default class PlayerSelection extends Component {
   }
 
   renderPlayerList(players) {
+    const { classes } = this.props;
     return players.map(player => {
       let css = `mdc-list-item ${
         player.selected ? 'selected' : 'not-selected'
       }`;
 
       return (
-        <li
-          className={css}
-          key={player.PLAYER_NAME}
-          onClick={() => this.addRemovePlayer(player)}
+        <Tooltip
+          title={player.PLAYER_STATS}
+          classes={{ tooltip: classes.lightTooltip }}
         >
-          <span className="mdc-list-item__text">
-            <span className="mdc-list-item__primary-text">
-              {player.PLAYER_NAME} - {player.PLAYER_TYPE} -{' '}
-              {player.PLAYER_CREDITS}
+          <li
+            className={css}
+            key={player.PLAYER_NAME}
+            onClick={() => this.addRemovePlayer(player)}
+          >
+            <span className="mdc-list-item__text">
+              <span className="mdc-list-item__primary-text">
+                {player.PLAYER_NAME} - {player.PLAYER_TYPE} -{' '}
+                {player.PLAYER_CREDITS}
+              </span>
             </span>
-          </span>
-        </li>
+          </li>
+        </Tooltip>
       );
     });
   }
@@ -162,3 +170,13 @@ export default class PlayerSelection extends Component {
     );
   }
 }
+
+const styles = theme => ({
+  lightTooltip: {
+    boxShadow: theme.shadows[1],
+    fontSize: 13,
+    maxWidth: 100
+  }
+});
+
+export default withStyles(styles)(PlayerSelection);
