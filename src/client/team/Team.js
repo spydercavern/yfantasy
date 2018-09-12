@@ -28,7 +28,7 @@ export default class Team extends Component {
         simulating: false,
         matchResults: matchSimulatedResults
       });
-    }, 3000);
+    }, 1);
   }
 
   getPlayerScore(playerName) {
@@ -62,24 +62,29 @@ export default class Team extends Component {
     let sortedTeam = _.sortBy(teamRankings, ['POINTS_EARNED']).reverse();
 
     return (
-      <div>
-        {relevantTeamMemberResult.map(player => (
-          <div key={player.PLAYER_NAME}>
-            {player.PLAYER_NAME} - {player.POINTS_SCORED}
-          </div>
-        ))}
+      <div className="result-section">
+        <div className="my-team-results">
+          <h2>My players score</h2>
 
-        <h3> Total Points: {totalPoints}</h3>
-
-        <h2>Team Rankings</h2>
-        <div>
-          {sortedTeam.map(team => (
-            <div key={team.TEAM_NAME}>
-              <div className={team.highlight ? 'highlight-my-team' : ''}>
-                {team.TEAM_NAME} - {team.POINTS_EARNED}
-              </div>
+          {relevantTeamMemberResult.map(player => (
+            <div key={player.PLAYER_NAME}>
+              {player.PLAYER_NAME} - {player.POINTS_SCORED}
             </div>
           ))}
+
+          <h3> Total Points: {totalPoints}</h3>
+        </div>
+        <div className="overall-team-results">
+          <h2>Overall Rankings </h2>
+          <div>
+            {sortedTeam.map(team => (
+              <div key={team.TEAM_NAME}>
+                <div className={team.highlight ? 'highlight-my-team' : ''}>
+                  {team.TEAM_NAME} - {team.POINTS_EARNED}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );

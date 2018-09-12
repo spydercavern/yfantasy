@@ -20,8 +20,10 @@
 
 .current-players-container > ul > li {
   max-height: 50px;
+  cursor: pointer;
 }
 
 .selected-players-container > ul > li {
   max-height: 50px;
+  cursor: pointer;
 }
